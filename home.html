@@ -11,11 +11,6 @@
       --text-color: #000;
     }
 
-    .dark-mode {
-      --background-color: #343a40;
-      --text-color: #f8f9fa;
-    }
-
     body {
       background-color: var(--background-color);
       color: var(--text-color);
@@ -24,24 +19,166 @@
 
     .navbar {
       margin-bottom: 20px;
-    }
-    .carousel-inner {
-  justify-content: center;
-  text-align:center;
-}
-    .carousel-inner img {
-      width: 90%;
-      height: 580px;
+      background-color: #8949ff; /* Dark background for navbar */
+      color: #ffeb3b;
     }
 
-    .dark-mode-toggle {
-      cursor: pointer;
+    .navbar-brand {
+      color: #ffeb3b; /* Yellow color for brand */
+      font-size: 1.5rem; /* Slightly larger font size */
+      font-weight: bold; /* Bold brand name */
     }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color */
+      font-size: 1.1rem; /* Slightly larger font size */
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #7024fd; /* Slightly lighter dark background */
+      border-radius: 5px; /* Rounded corners on hover */
+    }
+
+    .navbar-toggler-icon {
+      background-color: #fff; /* White color for the toggle icon */
+    }
+
+    .carousel-inner {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 800px;
+      object-fit: fill;
+    }
+
+    .accordion-button {
+      background-color: #f8f9fa; 
+      color: #000; 
+      box-shadow: none; 
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #f8f9fa; 
+      color: black; 
+      border-color: black; 
+    }
+
+    .accordion-button:hover {
+      background-color: #e2e6ea; 
+    }
+
+    .accordion-body {
+      padding: 1rem; 
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+
+    .card-subtitle {
+      font-size: 0.875rem;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .kids-corner {
+      background-color: #ffeb3b;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .kids-corner h5 {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .kids-corner img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+    .fun-activities {
+      background-color: #d1c4e9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .fun-activities h5 {
+      color: #4a148c;
+      font-weight: bold;
+    }
+
+    .fun-activities ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .fun-activities li {
+      background: #fff;
+      border: 1px solid #4a148c;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .footer-title {
+      color: #ffeb3b;
+    }
+
+    /* Horizontal Image Slider Styles */
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+      margin: 20px auto;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      width: 200%; /* Adjust based on the number of images */
+      animation: slide 22s linear infinite;
+      transition: transform 2s ease;
+    }
+
+    .slider img {
+      width: 15%; /* Adjust based on the number of images */
+      height: auto;
+      display: block;
+    }
+
+    .slider:hover .slider-wrapper {
+      animation-play-state: paused;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      50% {transform: translateX(-35%);}
+      100% { transform: translateX(-70%); } 
+    }
+    
+   
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SKY RESORT</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,12 +198,12 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
+          
         </ul>
         <form class="d-flex ms-auto" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
-        <button class="btn btn-outline-light ms-2 dark-mode-toggle" id="darkModeToggle">Dark Mode</button>
       </div>
     </div>
   </nav>
@@ -80,13 +217,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Resort Image 1">
+        <img src="1.jpg" style="height: 700px;">
       </div>
       <div class="carousel-item">
-        <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Resort Image 2">
+        <img src="3.jpg" alt="Resort Image 2" style="height: 700px;">
       </div>
       <div class="carousel-item">
-        <img src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Resort Image 3">
+        <img src="2.jpg" alt="Resort Image 3" style="height: 700px;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -98,14 +235,176 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  
+  <!-- Kids Corner -->
+  <section class="kids-corner py-5 text-center">
+    <h5>Take a Glance at our Luxury Resort</h5>
+    <!-- Horizontal Image Slider -->
+    <div class="slider">
+      <div class="slider-wrapper">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_GGLPQ8HUcuNiGzoa5LXEo7NgcxkoL256wFOu_2dGKRrbkeKmKlCezo9loO1xxkZqut4JJdpa0qPwKNtIgMhFBBw7gV76X8oup34GgJzAz_SSh8E7u7R7fvaEEZoAKI1T8j8yeTrHNpi-og4ZciHDT9Y0TpEPtGmwCKVirKYib7NSFtIL9lTqX2sDZyXMn2cedcTqEnSyAGcMJZGXWHgMnwvnNkmndpWDO1VWsfJ09XaED_lTO8ibe2f4LZKvn6iagOWkqKvFW1UPWtzHkkxKkyXJ822fotJ6zbCYa_RA6PFQp2qtAyFse6PEG5MaAsEvEMeg-F-Oh31SlItdy2qvRkqJmFnPYxZp4K1YzMgciGTbHs39Mihvf8zsVLdGj6n-wYDdM5m2bxBMW12Q_LLxWceqvpZrQD5q87oY59jYKBAZb3r3FTXIoietE4KhjkXlxgP3aZLvYROEzQDU_5VLWkiz_OPuA0zf0R19jTt66ylykVOcLBoXTSY5aambEuE_AKMdBt3hvfM3W0Um0_wK3J2dtK_ZW5-RdqhNwDueRcgrdoCGLnV3gdbwGMq9lJJLVf6s5DyRfEcTHNxPKHG9b-Ggzh9dBDqK4ZN2WaAmPVb_bABE3zwfPfVYPJs5jw0kUiLDFIJSwXnZHHGSPRo62iJ5DBeJ_k5odtUIT4Drs2ddRpA66iKku7yar-wQYcPWa8mlBl5RZVvO_UCRIl-i8eI6YUSNVn1Ik0KawsY35BlDzhVt6sp_TnDHlFwAt33aWTP-5O_xKMRIiPZ4jNilnCOZeHKvUUExTA-pZzRxICHTcxo65RbN-21_7lf07HOMVQ_jf5vKizl5eEDwjy7Or6CR_ljaT7bZYjpnX2HP4I1DwI0PnvMe8XCxfHRq-JbVEpxawZmS0BY8uHO0cBYeVzwQlBA_vwIIbbiVl0_atI7ERz6HU1URWXBNTGdnw5jq8H4BpgqF170koT2VxM3Z7eF6pq4Ap97iixEY17ZIstp7sWJg9Ub_6Z-20YXKbZZA8h82r3DCb1DFyfC3LZ_lH8PFrjEabzLoGYHHwyyp7i2zYHTN5-jYq98j3sWDfjElSq9JhXgmVsn8I2O_Vnd-JM6RmouQ2xUTgymc9uhWKR1nmuz2_tulABxJFTMkh-E-d05RW5VgKjE00G9nMYMW6sqrtLFZ44DHNV-SdkYKkjX-iL1mAS9hiqGNspKEJ04GlSDXWf6INUM1rQlseJrIAKX4wW8nO4xhQMRhKGkAqfacaxON_aboA4m51ryHDYzVLfwLCQgg_4S_kH7aAcZshjBJXn-XUF0Y2g3qp_nPUNIC-bmHw40QYeIYKpvk5-SId-pGpBiumQ_gn8egQgRQywam2g-LDuQ6lBhao7aS9hsO6XLDk550kzbDU3uyIiX9RnBwJDXuOoTjpnHJRXYy6oVxP1JKCrHFHg4yd34q-7=s512?authuser=1">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_EgiDnKxXZ7c7T6ptEK3SLOTiQ2oN-0LI4q08jTJFQHsbYEAjkTstxcYKTkpKk0XS2gsRDl-BmhhG4qEqZeYRoQMjGqQR_UUgkeUPTfvq-EwbtF4UU2HnW8iT4HO7_J1okf4YJ112yPb5fjlSchhRCeH1MiAxeQGgJ0zej7FJWaT1ugz2eh5PKDMa2oQbpqufWG2zsr9HVq_Bt0pfizv268Bq3IzscX-knig9zvqD_8fziICmhr6bdVxHRmr6t7P7gqwDo5Xbmz4lAbwNuhmmmW1eHauRxSmu0czic6ayfu2Po8sH_ImsPTzlOCePFQCQ-IwCfGnkdEdejPuZ9U-WQWLSi5HTO9BA2idGnWme2NcqiWcCU9TNekgeNBt-l_WfRRtMfB3ghxeYphomPP_7V5Be-m6AsFy-3hPGSkIk2okZcq3xkep91IiPzZXFAs4BZn_jI_QuH8hsoYqL2Z2ueeIaix1O9McNiNG_zxIHaTPf4N5r-sCRHL0Em4gwuefBTxNsz5E_TCRAVXuaIlUOC_RBgi67qylUpD712JZrzu_T4-0PApzD-Wg-UuLvilKGWoM5YoafhwM27qSZ6DLENWaqw-TK7oqATVXSAqpyBqdxEqJOMYqta6N02RdM1zLsl8jkXkxsdNgukGpnZgiTriaPWsggVPaBrrrpqKGt5PmXZUHIvRkkuEUL0dWcCMqYwYpW8Ao1UuCURga85nOkqxxkolWqwItGewHLgreDf9HT5XXP5jIzCiNJ1mbv9O6SgIAdaecvi2tNXkcLUNRVJW-XSbcYeTelOIf4QHnySCUWKQrSap3n-P6YIkrIJ8OzccmTEVK6OMmNvYwrT7hMPf0Zg4PwQk-LCV41_ezksKJEcddaHuEtgy4bscS0PVjt29Qf6A-tjBvb57t7VrYbkNxMLEE8ZdUvmXYhmsIVaul3XgA00J8CvJJNP-83IrefEuM2JVsQ9tsLCaskRi-LTmrWBPznrHWjijEXT4rxwHk6wc-RqbRmmyo7DB0x_602L74I6cqtlhbS1eyu4ZCDWYJFPqqyLtuKQfxpm8oKyCoLrDfWVMAWczg5kW0Xp7yurKnss9PQD4BycNbyaA2tXiNSkl2Etpq5Pr4Q1CyTlwIHHi0Vj7d5gdynVVjdohyJieQxyWpGHo_YXNjDMZvJ1cgeF_hkfSzHhmxZ9m_cLWONpChMhmV5OYzXAflnOqGDh-qE30fy9OeLeMgNFQjB9N3F-7yfZDaUUA9wlsFA2GqSQmfOUI6u62V8Yk-gkoJpr2aOaVLslhtSmlAgzCp9mGdyRtsy6-csc-yKCAslEjpRiPkaMSDVsbcoFganUtlsOrnIV_FuYSGmG1oNxb5O-pDgOpeKHU9Fsq7Rbekr_Kcgr9Q-ErTFazC_1kZdQmMhmRyT-FSP7PT8kJGq7NG4Yt6GB4dh6icQVY-OrQcp4=s512?authuser=1"  alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_GF5x7GYAx7YqeuFlDJY3cO4xYh19KrppV2eq7heyx5GEhLJCgy9EaMHYZpPB1-nXZwUNYmViLe-q4AQ34waAW2Oy-2stlLXArgwLyXC9sAB4fOLEha5dzZzXyraIPIyOlIX2_zQL9oEbw7qdMMR28rQC_McTxpakgSchMOYIDCcRNTN6XBKOQFIddLq-O1fKkxniEEL55cyNh-EPLmUGr8vihC__XcausZCRA7KMssuP9t25iNdwEBBRBx-5rGp_kRXAmZQrK5rWdxVDy4We38q0OqU4-nSv7WFDFk8M9SrSszHXOP3agVyABqedxjkO4r7MEMLsOMiSNsYA3tafHOKQuPJIHkKgmsZGWyLc6UTKZVddxfkHNQMH7sLWD6yzNOQ5XHDYW4GqFgTRiT441BD25y1k72CE2gOcB7G2aTROewoThuTBWXXTLhVOdI4PtQyeiRi51OLEh8M22Odp2lE-Zb5CXb5DQVLL4vfi0xQ3iGFHUgulo1wxFC9MMt866pSHswYvuZqR3BGsWiUZzb6_f2ld7jPZ888J8U9UVNhgFumjQjpItqRq0NT5902QWLsMRqqnJJtb1mp4UwfZigFi6b9eUTpEzKZY4m1Ude_l2Kbt6kzuaEaNl7LAgH5kwMxveEoqSlCZhcHcwmAlctexcwALQmX06v361pxwaJoaUuR_Rt5erFIx933HApYUuL_MNhdTuluDb0Bfzsln7HNHSnJ-KnQTWxTLlNYXWfuJETojFUDQNfLdVttu1zW5fL1VayZ_F8uQhBSQGuVqJfuegWz-iYY0fZv_OItQsYPcRg5t3a2PwNLLBtONdnwRHGuEYWuWCxJ17ND6nI0tAzKVe9XSNu0_iTfCY9pqn5lva55L0zsuGAmvKeQ3drByjKPPYt21vvmx41_XbEyKxHUWaBFJe2V2HsBlejS7D590f6R8vvTCr_ml5eu91kUDjj3nFxf4STuKBucMOcfalKJKVUvE6k0f-R9r_pdYQHcIWOQ2iC36UgsQLXI9NyB3d66tbosqvbQZq6F6LZbWgwQRe0hvYnJJ2RzbCqYkca4oINbE1ifuI1Dn9SdQZZhc6x54Do0Lf3sfg0jXE2fT33X8Ey7XlRzEZ4DE2MjncflNgeCbzIIDV4JqOEuyJJbN_r3esMzqCBATKr0em60X1WasUzkynBK-_eS-L-C-P5ovBlqBrmJ6qrR-cRNSDglSQS8GkoXA3wrgWuHqpUlT1BvQoQa0bObcirrm5JlT7g8BWoB96BJJc4iRnFeduwheosB8HQssSh5Ar0CnqF2g1fxLlTbuykt2Qc_wmPP5oP4xe5vvz6ox-bkzHQX40Z3FM30pbz7FT5Y5vzdWKe5lIfpWS3ZrF475tcfcEp9WjZ-0bjXJUTM6j806UGin9TnRz2_tlHbuPjfXDVewtELsIlPMsPyu3EWRlR4sUhGUih=s512?authuser=1" alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_HcyzAOJgQsn5crbFASorci6OlWikIFezftuSp5YfDXI5JB1BCWqEiNsGhIva64VO77xVoLjQzkJxKFieTlGZhvJDbrIQ1geO7dYVhfRpXvl-bvd1Hg4uy_8Ul-X6Vvf_KLdNE41XkkKbs1EZxDgFgCkGhWBK8eWtS03iBBPFN-dQbMyMtidPvSV3xDW17iF-NLXAx4Y1eZv6ai60WG5_f2kJ8ccytAfnodkDsofSRFDqki05ChlKpPRt2vV7KjvgMr9jl6x8X6guw18Qzs0uGarQnWABJOcRss0FvZ4VtF2LQ2B-U7imErc166qqsI58YBd5TauydedhQM-C0ylBE6kwLmbh6hgLvXBUkz_mvujDjIWS_3w7uCUJDScuyUagss2pJSf2yJJeWvwL-lw5BPYl35F7siZUEEu8WKWHR7i4BmgkEmnd1bBdV7iqliUSiU7qC275CPjODF8IQLBh_mwaEGUkK2ml0-B7SuHm-x5MtGN4BNt9N7dJWFYopPCg8m0LsvdN-YgfVQd2W5SRNyz8jGxewXTltlmJ0icse-ODQRAyT-TLqIi4WEg10Rhbuj8kJclMd8l-Q6CZU2QzIx49c9ol73Do8NTPDOkBtcwQjd81B3s0f06NKYnpc6vQVTQ_SpfqtTGGjdyIDyTT4ZyhhSD-3uJrjcDhFFyMNTuIOLBK0yMAP-EzLXTQpqfQg1I-AuXX_W7oxPPTqckOHLPNrzmAZWvEZwenq9SGcSPwc_tpBuubn2l-vKS_-P9JLHwHEcCIIgLMXkPwgPDZobAyWmrPZxcnjOpGqJ3ZiL2LBbiBV7JdolCquYAgo-nyzENoJZa-a94wozfyOwZFdDG1REW7VYVpJBT2vvV8lNQe1IJCjz7GonIkHO20BUeAoKYZ-sWfg_XPqpt6MCLNIgT9sIEdgcuK40Y5fPG3HHDWEFMLcQEbEBH1yt98us2Oe0cAxrkEPjiTFv0y2xDunBAKJZH4SZMcS1Y7lJE_Ji-Elcz_X9tGAyXFp7KDlCniajMvjRt1Xk_-5aN1cyzWp0ASrWeC5nSfD5rVluEnLKn02l1B91oga1CmTslSKJnfQa6idnGXNnX8hq2QZs3GJkhharkGRoo0A_vccwlGBSGmApzlMcnIDSDeSpBLn2GCHT0u9VGJaE7DzHAR1C9DcP41pTpg-WWYDVxxyoW1BgF4ahwScroxxjzpgCIHXFpS9tJyNVwKyNVmm384P56ZeHXtp8iXG4S7BoKaB3f6Pl0BTbw55QG_xw86OJabs7A5brMx3SJNW2bmznFZXWTtWEjj6TPBaZVexhVTyGqoTIvtnshsCDZAVESJ6RLi4111lSm2DXtAfINKKG-7k4HzLHyxaiY9-1mYLyrYkly25KDfWlQLD16fm8u6DOPRWRYOu4eb6t4iU7wZrBS2mYrfDwHObFwb12Vdq6j3a_SbL4=s512?authuser=1"  alt="Aqua Park">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_FeHqzrBnSkisg7OGBvaRM3o7-adOnG4t21JEfx-uO85w7LP_ZMBROO4PpZ-dK4SdBCppDLrLW0eHmPZrS_Un0VPmUW4mzfQghokMvfZEu_unFwCHehViO-1xt5dy2dLM_4hEgCEU5zcSq_PLj8VHP1NFwsiO3okjAmJeDbaro9AJoyy8VQSUyRhAdwf6ubxGOcAnpqleyFL5NERKka5Y1AL3DSlvSuQN1QqkOC-qXBgGuOGIyzmxGn96vJw5sgEXvnKXf4YvxbKoa0aIMfx6bzK57vZfwENJVz7DwC5F7axY-VRjrpJh7AtYu26szT-6yxxzfm5OITIfZz9FttOrLdHHMkutdquUS8ySAO4z_fH4e7Oi-ZQKiNn5ie4hYwjJqZO7uBGFpp598PRG6sZPKowSizfkh_DcnLbl69v7oeFxm-0WcS6qrbr7zHnvq-cHauzD7oQe7rbMEqA0-Qia8fygwMJj66b1xI7N9aQL_qqcJAvvrRhAs-mMmkOBVNV0_6hNhFEf_4DK51944WUT7ndz4HgKuKVBvCLQBiDqAfPOktOSLVVqifMKe0pjsiDsaGeXX7iuUdxsVE2mHx_kRtKy-EJwtTG9MtsaMIgyNrNDFYNrnZr_twvbuOIMrWlsQiWsienvKI0Ps4WaMY1TfxV5eJAZAnNIHC_BhXKqy9Xt32i9ke1k0Riq1M3qdia0hOJ4h9qK6_3LGrZoip60RX2Dv3e7zQcUjBomuwTEMgtrsE4qV_QP1IOyJbQ4WXAXbFoK5WzhzHownfOsFRaycAHCLQzqIq_VXaT15cIwq0wtyHE4waYPi39V3ceF4Ibhn1Jplqkb_YllKGziVmEfJS34r-qvDPwdaOp7ufHIqZ4iMulqmUFnfwZg0tAbiLZuNJMAEc1Vvmk1NzZcgOvbbXyJtOQedOdy9ja0SiRTxlc3iG5tz_XwptxQsXwuoo7fzJQ94aNL-aEtoqWXCZ_STAiQ1Py_gAzW_3HvfHxqvW54NuzwjQW7FxnJJ98Oy2HbDZ2wiXI_FaaEE_lcxOfeLIlueeafN4KdYAhuiWoBShNxFj1azxbU--PJuyCk0XyzyM4hXiizoCoUo9Ds4dta9f0sWJ-Ir28UZ6v_eUVhiKsSvX5T-FZ12KTQInY5JIhpHeXHpJZYvkAFuwOH5mTCep3fNCN-M2NG3vNefRhRwpVbpGs-i4NY23ojvvIPtLHRP9P-x-bNmYUXpP4nJVbLelNhuERiS3KFGS1wz-Qm9v3ezM-j_EZiMk_fvGp8g-dcjrwGAAiNvaJ8pxOYnYav2xOPt0x6VH8WwGqD8zQzSA-NHXJGn6Sklzo35C6AH3JsFvkkcazFXGZgy7_OP_Z7v_CLRIrVnJ0Vs2ilH6XtIdc7ImVG4BId9yU8ToEKMCqz6WojRiyzoM-GBE8zlHFoqPxPRGdfD3GI-gMRvH3WQy=s512?authuser=1" alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_HigCAselhtN6j5KG9TSzD5n6IoCUapdLBUvyZQRPcHF3m28Wj0SV7yh7ba-wrwljqkEtHK9E7U_9TprUgVWZQ3NJn_HlWmttqDhfwDba8H4-6spo_EyuqSrpO9JuUWMW13hZxMEEQ56jiizxXFJ7d6ZoDSRo9-QXFBQ-ZIPTOS9uxzLbyfQRQAc3nEIdWS67BWBVP8HVQfHTMfhv2r6kZz2UydDE50DdrW4-zSQFab53HnpNonNO7uPcyH2oVTuA9KwL1pLOL3Eb9_Qx0vWfMhlUq0Fsg9uXrWNn0JbOMXfjd574Cbm_5r_D83PxPZJINHVEXuEA0KI7CDSGPZMtOA2mE1rnJNBwrJwEc_Mx5r9POWsrSbuw1HUi275cxZC5vjHxd21fNvob-86ltfNp9ZsO446v99tweUy7NY8dvwpcKgJA6uR_5CbWXAtUwJBAD3IY9awNhuFMsvQlEpA-e8TNBAHC9YoIP6IS3gYUTGFoLCsE-EuvaWOQ20QD0Ojp9oS8wbbuJVnUxlxZWAz1QiX6gu5RWg9LVLooV6D_gyYN4_Q1EyYMZCPFwQOmMYl2zeeRE91AuFSIzGBI_w_rnhLgVCcVki8dGEu8at0-_DQN1u9JNSQYw7kyHkv45q_7EA9rOPhhthfATnMIiWydToXtB2Zzenw61mGQL_K7_bLNHyN4PP0YwFmod3AmQ--Kzkc1KHLlzj45XoTwY6EhialtqMkunH7suevOBbDIYD1fwJCGypi_LDAP9-K7xILPRSDSb26mbrJTUkibwXlJta9veAG4NEGq7PVoowU4csVnfuvDWn9A2AkV1d_tcFc5ZxOyVbp8o2fn5yeY1MQGfgd4O1rjVGWGMhwjGl882GYo2Y1572R71KM22hbvKGFVBxrkeTGU3qubD3E1eVJ9XAamtndFaX_AhhKRL07FOJ-BOYGLI-XPBKn9DAkYSBSsLCZImdDHuUwuwbS4j6jHCLI48BwBTnMHA-DzM535RfgopT6YHVdsSqXYzUeSqD-6xShSp9XwYu1CAvX2XYA0Q67N-35YwcF58XsRcVWfBa0ut61W5Isv4u6ghA9RhfG3Eh7xepjtgGEL1pNCIfxm7Tt1x5mqrhjVbBVYEJ4q-5gvgB8neqNpV3MjLYJYjhWeYL0yiC_9URqwFbFbY7IkNmtmwDorvZjZqqjGykxLsAyrwOxe9sYzw3USlFMALyl9IykalO_T74Dmk26pR_ZR3pq3FmWYi6axW8iuM1RESrqQJ0v6Hvf4E0DA5lugT7hDS5hiz695MEdMyio4oZ0f55Wv9dNMjphZyxHgfpKr9gz4MRlCsqY1w0s0GZWRakzyrDdhSSa1jdO0TvUia0eaB5Y3pt3gOc0pO8BGw2Wa9wBmR5ULGI_rIQTWx72qW3f5kKo11_2zW-1iAjHc-uTDnmI77Eut7_4zAc_m4N5svl=s512?authuser=1" alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_ES_BnEXBvt1R7ddeBilmxe9G3xA1b6dQisbcWlzdYYsMApF15NCL3LxbxGYssey4hjMQ7vAfVnGEbAwpthtXK_SfNC8R0zt7y_Vg3kl8lVx8lOXiie3H417jB2w_hQRm75GOkGnSj9UI1JBdOaOCQ_g8i4-w-FOocOubk_UW5VypHehOQXcCZdzcjOzx6LG5VDAt2MnnOeOifkLLL8wo96fj0_wVcuL4W8PleFqxXd46r_QLsyh0HbhoB4YU4yZPd4_laZOpsE2TGFFvfw9ULHOtzfVwfOTBowkqgLWY6mSVcLHASorch7dMpiqojaM4wwWobk08A-_LxJy38IuBqu3DM9JTYtA4s3nDLwQaC7Q9jDLB1olxbrODSlC3DEMQtnZoJZ2vzmwdOgrn0WJ1W0j2hEmxeXs0iwlhdYoECymDhIzaprxx29Jtl27P6SC150OYE1Zar0Y6NmslPVTi7KMK-kgO0gWeHAn4NpPadVUCyoVTN423HJMylNDyrqz2kzhODO1biyby_YvCsLt9fN27WN9R2QU0YOdzRjIIwA1wv4v0-M5Uw6aUfVv0KhRQnOupIbqdUl-AxpF6CJmFlgPuMTL51mNPfXWK94QwpM-ZSB9fMPXoVYsN0Ld3nZXwGbQwifEWydkC8hv4NVWMp0MX3TMWZYDsyztOuoqt989OkymNztaxMgAPqAYEH7MFLNjDzMqQeXNBzwt8yZMXVOWj_PsuckdY2ZQpSLwdxnSbQvDSqwPFzcu7UkhtG61i2pc65TuvXq2xxanpv0VNTrXlyU_bx3sZozC25AF8Nq2R6WkQ0cLswNTY7i_3EAdaK62kfuATRGmkaQkXMPdjdZh-RCXTMX42aCX7ZI2mtfX22fHVcJYjAtuAWJEFG8_yPsj8mVJTiAmT7eJ-cF6lRxe4CD9nELHtlGvgSFYfepoAWNtlwR9Dhb2_nhrGYmDEZI6Gid9CS5kkMqYjWAD6QV8waP9O6cDv9r1xFKyljUrQBPN15SWVmtcgBv_GaNaO3ksEU_IzkZXx16ijPFt6CzXBeBJhUd8whFcmTJZYaQBa6MxIR_AUzlYXgwWEoihEq-SmHS1kElyMPwyExQAYcJuAny7fNTFvxbozAY5B-AcxzKdXRB7zddaaUrHKrKb6aCXzIii_6co_aBmBeN58vH9eVXql0QkeMG9WNimOaPyu7hdvXjA6bvJnQKKfCykzC1KbQjkqRQDYY17LUfSChKke0qk6Z64-ovpScuB2Uqs8CNbnHlm4IMwSTh96-PRRm3sz6cQj1Wig-FLwlKJIH4oKYVRZhLbxwcQQp59nup44Pvswe77zEJhOqgrH2420c3A5O6OCSca29FVWBTu44DCcWCyum7zUXlsQ6JGhr18tkXsdRE8DzFFFseb9mNIqFt8I72u8A2plG6Y6NujTXOGDtLCeUsx-yFEgUbBbg=s512?authuser=1" alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_Fdr4wxdBBkFf01B9pY5bAKtrK5DsWect_p7zdD_8mwTVcmka5Z1xZ7ubdvF1FoCB74Pn5B_S1VDsoi1vprxE4ogroWFXZlKAEzKjsPeowghw1YZ_Gpw3RQoSySmHt1_3fpC9dL9pRSp9AdpBAUEeFo8Yg2JxBCncZ-i6mp46Er-iSZH7RHtRFMTfXqkqORLJPbPJfrw9KVMo5FY8vumX-UDrhTJxOAR8Kb2Wgp0WZUgZfVcoBkxy73JNvFZTRnG23Ciy3wrplS8kscgRrxExhAIVW45s5APAxOzsQ1NJyNDDbiGEOfNF6n4a7g6gy8P2au1ic2MYdUvQcCoIwyiE91c-oPz0XiBUuVmBuPsZGdJZbcv16RpwRvfejl_Q-jcyj7GgPv1tGl-QdxuwRwDhdjj1gV6HHZHVb9st0XOIUsdDAjY0m5NRiXfyIH-mcoMv7-3FVLsfS6v6814k7Wu901SUZj3LGkE0TelwceBbeJxqkq9jM_4OCi9aTDzIqYodPFqRd8e_yViWPC9CIDKgQPinZXZO0MlJOoNT4x-Y7EaXxgVpARTrs5F4t4FvGrcu64PsbWCDnMP6WaMz-eSbe6KriAf8d95m0KK6uNSHUmx6ixI8_zHnmOqL96yw82C0WFW-ZJ6wA9mbhZBXLj6AVN0BsquVCZjkc7OohRF2OWfPg7-dcfLCiHx7wAqtNOYJA5VhBMF7EDKwS5NkxMSNjjf2lx7Y7ZuNfMvuRmsRKtvL2Wyy0pf-WM9fik_MUH6zggy47ECKs4Z03okb6h28n0bp_NNMCaGPBzN0HN6JrOgBZUILTcnb56seTjCbno87Z4DJjAfq1u88Elr0ZIt1-ejsXqFVqjLHYRWZr8keL29EihQmCas3EOYQsOKKxifJLL_WiDoteAIsStaUBvGYAL3oVXQD4yqrOhoxt8hCpoJhGHS1u0dHQDwXU_p34rDyhlJRjNn3I7sxFpsjx6DlIDO03onJw2sVhwRuErnhNYxIGGkaor9H5tMgYwSGeCGUZeeqLMLg3W8P2tRO7GNVUn2c84cePvfpxFKfCK5KUjkdiLFAlxVqODqnM5Q_pPHAykSOnO8usqqATMr5mSYb0QDq02N0CbPsK4ZaIFcjcepKa-Yoz-YuoyxFrgA1m1qeWkQaPLyXebttMk5fGk7WIUT5XIbvCqQ0S_qLKtP0CLhtLsWbL54sMvSDxmY-rm4EzFWauK0tIDq31_fcQbm2HEZ8PcgODWhkr6OB8gUEezK1Vdndoi5Ps53MeUfCTqJtztGD1L-FIRFO-LQnpR4Yz7HjuCWBPs3ofl-UBNOWQAJXh8HYKlWJJ6f_bKjXiMPF54uRIFj227Mf51ibhNOozGXU8WQ7HiOdtJ3qb6dKYs42Ju7_vbhLPqevzlb54xVdi1TpBfY_Tpn6ErPqwgB2D9K5nH1ZWUZ8-9JBevIbxW=s512?authuser=1" alt="">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_GGLPQ8HUcuNiGzoa5LXEo7NgcxkoL256wFOu_2dGKRrbkeKmKlCezo9loO1xxkZqut4JJdpa0qPwKNtIgMhFBBw7gV76X8oup34GgJzAz_SSh8E7u7R7fvaEEZoAKI1T8j8yeTrHNpi-og4ZciHDT9Y0TpEPtGmwCKVirKYib7NSFtIL9lTqX2sDZyXMn2cedcTqEnSyAGcMJZGXWHgMnwvnNkmndpWDO1VWsfJ09XaED_lTO8ibe2f4LZKvn6iagOWkqKvFW1UPWtzHkkxKkyXJ822fotJ6zbCYa_RA6PFQp2qtAyFse6PEG5MaAsEvEMeg-F-Oh31SlItdy2qvRkqJmFnPYxZp4K1YzMgciGTbHs39Mihvf8zsVLdGj6n-wYDdM5m2bxBMW12Q_LLxWceqvpZrQD5q87oY59jYKBAZb3r3FTXIoietE4KhjkXlxgP3aZLvYROEzQDU_5VLWkiz_OPuA0zf0R19jTt66ylykVOcLBoXTSY5aambEuE_AKMdBt3hvfM3W0Um0_wK3J2dtK_ZW5-RdqhNwDueRcgrdoCGLnV3gdbwGMq9lJJLVf6s5DyRfEcTHNxPKHG9b-Ggzh9dBDqK4ZN2WaAmPVb_bABE3zwfPfVYPJs5jw0kUiLDFIJSwXnZHHGSPRo62iJ5DBeJ_k5odtUIT4Drs2ddRpA66iKku7yar-wQYcPWa8mlBl5RZVvO_UCRIl-i8eI6YUSNVn1Ik0KawsY35BlDzhVt6sp_TnDHlFwAt33aWTP-5O_xKMRIiPZ4jNilnCOZeHKvUUExTA-pZzRxICHTcxo65RbN-21_7lf07HOMVQ_jf5vKizl5eEDwjy7Or6CR_ljaT7bZYjpnX2HP4I1DwI0PnvMe8XCxfHRq-JbVEpxawZmS0BY8uHO0cBYeVzwQlBA_vwIIbbiVl0_atI7ERz6HU1URWXBNTGdnw5jq8H4BpgqF170koT2VxM3Z7eF6pq4Ap97iixEY17ZIstp7sWJg9Ub_6Z-20YXKbZZA8h82r3DCb1DFyfC3LZ_lH8PFrjEabzLoGYHHwyyp7i2zYHTN5-jYq98j3sWDfjElSq9JhXgmVsn8I2O_Vnd-JM6RmouQ2xUTgymc9uhWKR1nmuz2_tulABxJFTMkh-E-d05RW5VgKjE00G9nMYMW6sqrtLFZ44DHNV-SdkYKkjX-iL1mAS9hiqGNspKEJ04GlSDXWf6INUM1rQlseJrIAKX4wW8nO4xhQMRhKGkAqfacaxON_aboA4m51ryHDYzVLfwLCQgg_4S_kH7aAcZshjBJXn-XUF0Y2g3qp_nPUNIC-bmHw40QYeIYKpvk5-SId-pGpBiumQ_gn8egQgRQywam2g-LDuQ6lBhao7aS9hsO6XLDk550kzbDU3uyIiX9RnBwJDXuOoTjpnHJRXYy6oVxP1JKCrHFHg4yd34q-7=s512?authuser=1">
+      </div>
+    </div>
+    <p>Experience the ultimate luxury from above with breathtaking aerial views of our tropical resort, where pristine beaches and lavish villas await you.</p>
+  </section>
 
+  <!-- Fun Activities -->
+  <section class="fun-activities py-5">
+    <div class="container">
+      <h5>Resort Activities:</h5>
+      <ul>
+        <li><b>Infinity Pool Swimming:</b> Relax and swim in the resort’s stunning infinity pool with panoramic ocean views.</li>
+        <li><b>Spa and Wellness Treatments:</b> Indulge in massages, facials, and other rejuvenating spa services.</li>
+        <li><b>Water Sports:</b> Engage in kayaking, paddleboarding, and jet skiing.</li>
+        <li><b>Fitness Center:</b> Use state-of-the-art equipment in the resort’s fully equipped gym.</li>
+        <li><b>Evening Entertainment:</b> Attend live music performances, themed parties, or movie nights.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container">
+      <div class="row">
+        <!-- FAQ Section -->
+        <div class="col-md-4">
+          <h5 class="footer-title">FAQ</h5>
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  What are the check-in and check-out times?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Check-in is at 3:00 PM and check-out is at 11:00 AM.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Do you offer room service?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, we offer 24-hour room service for our guests.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Is there parking available?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, we have ample parking space available for guests.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Can I cancel my reservation?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Cancellations are allowed up to 24 hours before the check-in time with no penalty.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="col-md-8">
+          <h5 class="footer-title">Customer Reviews</h5>
+          <!-- Review 1 -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <img src="https://via.placeholder.com/50" alt="User 1" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                <div>
+                  <h6 class="card-title mb-1">John Doe</h6>
+                  <p class="card-subtitle text-muted mb-2">August 25, 2024</p>
+                  <div class="d-flex">
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-muted">&#9734;</span>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0">Amazing experience and value for money offers!</p>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <img src="https://via.placeholder.com/50" alt="User 2" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                <div>
+                  <h6 class="card-title mb-1">Jane Smith</h6>
+                  <p class="card-subtitle text-muted mb-2">August 20, 2024</p>
+                  <div class="d-flex">
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0">Excellent stay! The service was fantastic and the amenities were top-notch. Will definitely return.</p>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <img src="https://via.placeholder.com/50" alt="User 3" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                <div>
+                  <h6 class="card-title mb-1">Emily Johnson</h6>
+                  <p class="card-subtitle text-muted mb-2">August 15, 2024</p>
+                  <div class="d-flex">
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-warning">&#9733;</span>
+                    <span class="text-muted">&#9734;</span>
+                    <span class="text-muted">&#9734;</span>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0">Good experience overall, but the check-in process could be smoother. The room was clean and comfortable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="map-container">
+      <div id="map"></div>
+  </div>
+  </footer>
+
+
+</script>
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('darkModeToggle').addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-      this.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
-    });
-  </script>
 </body>
 </html>
